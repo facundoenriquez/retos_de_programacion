@@ -1,15 +1,16 @@
 text = "papa pepe pipo popo popo pepe papa"
 arr = []
-dict = {}
-new_word = ""
-count = 0
+word_count_dict = {}
+text_to_list = text.split(" ")
 
-for t in text:
-    if t == " ":
-        dict['palabra'] = new_word
-        dict['cantidad'] = count + 1
-        arr.append(dict)
-        new_word = ""
+for word in text_to_list:
+    if word not in word_count_dict:
+        word_count_dict[word] = 1
     else:
-        new_word = new_word + t
+        word_count_dict[word] += 1
+
+# Convert the dictionary to a list of dictionaries
+for word, count in word_count_dict.items():
+    arr.append({word: count})
+
 print(arr)
