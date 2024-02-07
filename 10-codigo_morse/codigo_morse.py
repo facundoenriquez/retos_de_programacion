@@ -1,4 +1,4 @@
-text = "hola papa"
+text = "hola pepe"
 dict_morse = {'A': '.-', 'B': '-...',
                    'C': '-.-.', 'D': '-..', 'E': '.',
                    'F': '..-.', 'G': '--.', 'H': '....',
@@ -16,11 +16,9 @@ text_in_morse = ""
 
 for c in text:
     char = c.upper()
-    if char in dict_morse:        
-        for key, value in dict_morse.items():
-            if char in key:
-                text_in_morse += value
-            else:
-                text_in_morse += " "
+    if char in dict_morse:
+        text_in_morse += dict_morse[char]
+    else:
+        text_in_morse += " "
 
 print(text_in_morse)

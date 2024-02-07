@@ -9,8 +9,10 @@ for word in text_to_list:
     else:
         word_count_dict[word] += 1
 
+print(word_count_dict)
+
 # Convert the dictionary to a list of dictionaries
-for word, count in word_count_dict.items():
-    arr.append({word: count})
+for key, value in word_count_dict.items():
+    arr.append({key: value})
 
 print(arr)
