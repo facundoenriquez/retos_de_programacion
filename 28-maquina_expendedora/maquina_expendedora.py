@@ -17,14 +17,24 @@ def maquina(monedas, id_producto):
             total = 0
             for moneda in monedas:
                 total += moneda
-            product_info = next((producto["name"], producto["price"]) for producto in productos if producto["id"] == id_producto)
+            product_info = next((producto["name"], producto["price"])
+                                for producto in productos if producto["id"] == id_producto)
             product_name, price = product_info
             if total < price:
                 print(f"No hay suficiente dinero para comprar {product_name}")
             else:
-                
-                print(f"Toma tu {product_name}")
+                vuelto = total - price
+                print(vuelto)
+                devolucion = []
+                for m in monedas_permitidas[::-1]:
+                    if vuelto >= m:
+                        it = vuelto // m
+                        for _ in range(it):
+                            devolucion.append(m)
+                            vuelto -= m
+                print(f"Toma tu {product_name} y tu vuelto {devolucion}")
     else:
         print("La moneda no esta permitida")
 
-maquina([5, 10], 1)
+
+maquina([5, 200], 1)
